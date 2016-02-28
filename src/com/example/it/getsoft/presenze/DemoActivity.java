@@ -37,7 +37,7 @@ public class DemoActivity extends ZKActivity implements ZKLoginReceiver {
 		super.onCreate(savedInstanceState, TAG);
 		setContentView(R.layout.activity_demo);
 		fixViews();
-	}
+	} // aggiunto commento VER 2
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
