@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database>
+	<info version="1" />
+	<table name="entity">
+		<column name="_id"  notnull="true" type="bigint" primarykey="true" default="random()" />
+		<column name="enabled"  notnull="true" type="integer" />
+		<row>0|1</row>
+		<row>1|1</row>
+		<row>2|1</row>
+		<row>3|1</row>
+		<row>4|1</row>
+		<row>5|1</row>
+		<row>6|1</row>
+		<row>7|1</row>
+		<row>8|1</row>
+	</table>
+	<table name="employee">
+		<column name="national_id"  type="text" />
+		<column name="pin"  notnull="true" type="text" />
+		<column name="photo"  type="text" />
+		<column name="_id"  notnull="true" foreignkey="entity._id" onupdate="cascade" type="integer" primarykey="true" ondelete="cascade" />
+		<column name="phone"  type="text" />
+		<column name="birth_date"  type="integer" />
+		<column name="last_name"  type="text" />
+		<column name="email"  type="text" />
+		<column name="address"  type="text" />
+		<column name="first_name"  notnull="true" type="text" />
+		<column name="gender"  type="integer" />
+		<row>|111111111||1||0||||Administrator|0</row>
+	</table>
+	<table name="entity_hierarchy">
+		<column name="id_parent" foreignkey="entity._id" onupdate="cascade" type="integer" ondelete="cascade" />
+		<column name="id_entity" notnull="true" foreignkey="entity._id" onupdate="cascade" type="integer" primarykey="true" ondelete="cascade" />
+		<row>|0</row>
+		<row>0|2</row>
+		<row>0|3</row>
+		<row>0|4</row>
+		<row>0|5</row>
+		<row>0|6</row>
+		<row>0|7</row>
+		<row>0|8</row>
+	</table>
+	<table name="employee_login_combination">
+		<column name="login_combination"  notnull="true" type="integer" primarykey="true" />
+		<column name="id_employee"  notnull="true" foreignkey="employee._id" onupdate="cascade" type="integer" primarykey="true" ondelete="cascade" />
+		<row>3|1</row>
+	</table>
+	<table name="attendance_event">
+		<column name="count_as_work"  notnull="true" type="integer" />
+		<column name="extensible"  notnull="true" type="integer" />
+		<column name="absence"  notnull="true" type="integer" />
+		<column name="code"  notnull="true" type="text" />
+		<column name="_id"  notnull="true" type="bigint" primarykey="true" default="random()" />
+		<column name="name"  notnull="true" type="text" />
+		<column name="description"  type="text" />
+		<column name="deletable"  notnull="true" type="integer" default="1"/>
+		<column name="enabled"  notnull="true" type="integer"  default="1"/>
+		<row>1|0|0|1|1|@string/attendance_event_1_name|@string/attendance_event_1_desc|0|1</row>
+		<row>1|0|0|2|2|@string/attendance_event_6_name|@string/attendance_event_6_desc|0|1</row>
+		<row>1|0|1|3|3|@string/attendance_event_4_name|@string/attendance_event_4_desc|0|1</row>
+		<row>0|0|0|4|5|@string/attendance_event_3_name|@string/attendance_event_3_desc|0|1</row>
+		<row>0|1|1|5|6|@string/attendance_event_7_name|@string/attendance_event_7_desc|0|1</row>
+		<row>0|0|0|6|7|@string/attendance_event_8_name|@string/attendance_event_8_desc|0|1</row>
+		<row>0|0|1|7|9|@string/attendance_event_2_name|@string/attendance_event_2_desc|0|1</row>
+		<row>1|0|0|8|10|@string/attendance_event_9_name|@string/attendance_event_9_desc|0|1</row>		
+		<row>1|1|1|9|11|@string/attendance_event_5_name|@string/attendance_event_5_desc|0|1</row>
+		<row>0|0|1|10|12|@string/attendance_event_10_name|@string/attendance_event_10_desc|0|1</row>
+		<row>1|0|1|11|13|@string/attendance_event_11_name|@string/attendance_event_11_desc|0|1</row>	
+	</table>
+	<table name="entity_group">
+		<column name="id_type" notnull="true" foreignkey="entity_group_type._id" onupdate="cascade" type="integer" ondelete="cascade" />
+		<column name="_id" notnull="true" foreignkey="entity._id" onupdate="cascade" type="integer" primarykey="true" ondelete="cascade" />
+		<column name="name" notnull="true" type="text" />
+		<row>1|0|@string/entity_group_0_name</row>
+		<row>1|2|@string/entity_group_17_name</row>
+		<row>1|3|@string/entity_group_18_name</row>
+		<row>1|4|@string/entity_group_19_name</row>
+		<row>1|5|@string/entity_group_16_name</row>
+		<row>1|6|@string/entity_group_21_name</row>
+		<row>1|7|@string/entity_group_20_name</row>
+		<row>1|8|@string/entity_group_22_name</row>
+	</table>
+	<table name="attendance_log">
+		<column name="status"  type="integer" />
+		<column name="date"  notnull="true" type="integer" />
+		<column name="id_attendance_event" foreignkey="attendance_event._id" onupdate="cascade" type="integer" ondelete="cascade" />
+		<column name="_id"  notnull="true" type="bigint" primarykey="true" default="random()" />
+		<column name="processed"  notnull="true" type="integer" />
+		<column name="login_combination"  notnull="true" type="integer" />
+		<column name="id_employee"  notnull="true" foreignkey="employee._id" onupdate="cascade" type="integer" ondelete="cascade" />
+		<column name="annotation"  type="text" />
+		<column name="id_device" type="text" notnull="true" />
+	</table>
+	<table name="employee_login">
+		<column name="id_employee" type="integer" primarykey="true" foreignkey="employee._id" ondelete="cascade" onupdate="cascade" notnull="true" />
+		<column name="id_login" type="integer" primarykey="true" foreignkey="login_type._id" ondelete="cascade" onupdate="cascade" notnull="true" />
+		<column name="id_multi_value" type="integer" primarykey="true" notnull="true" />
+		<column name="id_action_group" type="integer" foreignkey="action_group._id" ondelete="cascade" onupdate="cascade" notnull="false"  />
+		<column name="value" type="text" notnull="false" />
+		<column name="salt" type="text" notnull="false" />
+		<row>1|1|0||21232f297a57a5a743894a0e4a801fc34nDr01D|</row>
+	</table>
+	<view>
+	    CREATE VIEW view_hierarchy_tree as
+		select h1.id_entity, h1.id_parent as  id2, h2.id_parent as  id3, h3.id_parent as  id4, h4.id_parent as  id5, h5.id_parent as  id6
+		from entity_hierarchy h1
+		left join entity_hierarchy h2 on h1.id_parent = h2.id_entity
+		left join entity_hierarchy h3 on h2.id_parent = h3.id_entity
+		left join entity_hierarchy h4 on h3.id_parent = h4.id_entity
+		left join entity_hierarchy h5 on h4.id_parent = h5.id_entity
+	</view>
+	<view>
+	    CREATE VIEW view_hierarchy_childs as 
+		select h1.id_entity as  id, h2.id_entity as  id2, h3.id_entity as  id3, h4.id_entity as  id4, h5.id_entity as  id5
+		from entity_hierarchy h1
+		left join entity_hierarchy h2 on h1.id_entity = h2.id_parent
+		left join entity_hierarchy h3 on h2.id_entity = h3.id_parent
+		left join entity_hierarchy h4 on h3.id_entity = h4.id_parent
+		left join entity_hierarchy h5 on h4.id_entity = h5.id_parent
+	</view>
+ 
+	<!-- Indexes -->
+	<view>
+	    CREATE INDEX IF NOT EXISTS attendance_log_date ON attendance_log (date DESC)
+	</view>
+</database>

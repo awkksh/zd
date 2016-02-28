@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.zktechnology.android.training.HelloCore"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!-- Permission to use Core's ContentProvider -->
+    <uses-permission android:name="com.zktechnology.android.core.DATA_READ" />
+    <uses-permission android:name="com.zktechnology.android.core.DATA_WRITE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+
+    <!-- Permission to use Settings's ContentProvider -->
+    <uses-permission android:name="com.zktechnology.android.app.settings.DATA_READ" />
+    <uses-permission android:name="com.zktechnology.android.app.settings.DATA_WRITE" />
+
+    <uses-sdk android:minSdkVersion="14" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/demo_hello" >
+        <activity
+            android:name=".DemoActivity"
+            android:label="@string/demo_hello" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <!-- <category android:name="zk.intent.category.LAUNCHER" /> -->
+                <category android:name="zk.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical" >
+ 
+    <EditText
+        android:ems="10"
+        android:id="@+id/editPIN"
+        android:inputType="number"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" 
+        android:hint="@string/pin"/>
+ 
+    <EditText
+        android:ems="10"
+        android:id="@+id/editFirstName"
+        android:hint="@string/first_name"
+        android:inputType="textPersonName"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" >
+ 
+        <requestFocus />
+    </EditText>
+ 
+    <EditText
+        android:ems="10"
+        android:id="@+id/editLastName"
+        android:hint="@string/last_name"
+        android:inputType="textPersonName"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+ 
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+ 
+        <RadioButton
+            android:id="@+id/card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/crd" />
+ 
+        <RadioButton
+            android:id="@+id/fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fp" />
+ 
+    </RadioGroup>
+ 
+ 
+</LinearLayout>
